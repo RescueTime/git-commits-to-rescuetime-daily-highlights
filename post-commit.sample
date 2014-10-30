@@ -1,11 +1,9 @@
 #!/bin/sh
 #
 # An example hook script to log commit messages
-# as a 'daily highlight' in RescueTime
+# as a 'daily highlight' in RescueTime Premium
 #
-# Daily highlights are a part of RescueTime Premium
-# learn more about them here:
-# https://www.rescuetime.com/rescuetime-pro?detail=highlights
+# See README.md for more information
 #
 # To enable this hook:
 #
@@ -21,26 +19,12 @@ API_KEY=PUT_YOUR_API_KEY_HERE
 MESSAGE=$(git log -1 HEAD --pretty=format:%s)
 DATE_TODAY=$(date +"%Y-%m-%d")
 
-# OPTIONAL FIELD - Label:
-# This will collapse commits under a common label, which is helpful if
-# you have a lot of commits. If omitted all commit messages will be
-# shown alongside any highlights you enter manually on the website.
+# You can edit the LABEL value if you would rather
+# describe these commits differently.
 
 LABEL='Code Commit'
 
-# If you want to omit any commit messages (such as inconsequential
-# commits where you have only made a small change), include any filtering
-# logic in the if statement below:
-# Examples:
-
-## To ignore a short commit message:
-## if [[ ${#MESSAGE} -gt 15 ]]; then
-
-## To ignore a commit message containing the string '_IGNORE_':
-## if [[ "$MESSAGE" != *_IGNORE_* ]]; then
-
-## To ignore both of the above conditions:
-## if [[ ${#MESSAGE} -gt 15 && "$MESSAGE" != *_IGNORE_* ]]; then
+# See more filtering examples in README.md
 
 if [[ ${#MESSAGE} -gt 15 && "$MESSAGE" != *_IGNORE_* ]]; then
   curl --data "key=$API_KEY&highlight_date=$DATE_TODAY&description=$MESSAGE&source=$LABEL" https://www.rescuetime.com/anapi/highlights_post

@@ -27,18 +27,24 @@ If you would like to use a different label, change this value to any singular no
 
 ### Filtering highlights
 
-You may not want to log all commit messages, especially if they are just for small changes.
+You may not want to log all commit messages, especially if they are just for small changes. You can wrap the highlight submission in an if statement to filter out unwanted highlights.
 
 **Examples:**
 
 To ignore a short commit message:
 
     if [[ ${#MESSAGE} -gt 15 ]]; then
+      curl ...
+    fi
 
 To ignore a commit message containing the string '_IGNORE_':
 
     if [[ "$MESSAGE" != *_IGNORE_* ]]; then
+      curl ...
+    fi
 
 To ignore both of the above conditions:
 
     if [[ ${#MESSAGE} -gt 15 && "$MESSAGE" != *_IGNORE_* ]]; then
+      curl ...
+    fi

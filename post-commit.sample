@@ -36,12 +36,12 @@ LABEL='Code Commit'
 ## To ignore short commit messages:
 ## if [[ ${#MESSAGE} -gt 15 ]]; then
 
-## To ignore commit messages containing the word 'ignore'
-## if [[ "$message" != *ignore* ]]; then
+## To ignore commit messages containing the string '_IGNORE_'
+## if [[ "$message" != *_IGNORE_* ]]; then
 
 ## To ignore both of the above conditions:
-## if [[ ${#MESSAGE} -gt 15 && "$message" != *ignore* ]]; then
+## if [[ ${#MESSAGE} -gt 15 && "$message" != *_IGNORE_* ]]; then
 
-if [[ ${#MESSAGE} -gt 15 && "$message" != *ignore* ]]; then
+if [[ ${#MESSAGE} -gt 15 && "$message" != *_IGNORE_* ]]; then
   curl --data "key=$API_KEY&highlight_date=$DATE_TODAY&description=$MESSAGE&source=$LABEL" https://www.rescuetime.com/anapi/highlights_post
 fi

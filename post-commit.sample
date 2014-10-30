@@ -33,10 +33,10 @@ LABEL='Code Commit'
 # logic in the if statement below:
 # Examples:
 
-## To ignore short commit messages:
+## To ignore a short commit message:
 ## if [[ ${#MESSAGE} -gt 15 ]]; then
 
-## To ignore commit messages containing the string '_IGNORE_':
+## To ignore a commit message containing the string '_IGNORE_':
 ## if [[ "$MESSAGE" != *_IGNORE_* ]]; then
 
 ## To ignore both of the above conditions:

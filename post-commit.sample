@@ -36,10 +36,10 @@ LABEL='Code Commit'
 ## To ignore short commit messages:
 ## if [[ ${#MESSAGE} -gt 15 ]]; then
 
-## To ignore commit messages containing the string '_IGNORE_'
+## To ignore commit messages containing the string '_IGNORE_':
 ## if [[ "$message" != *_IGNORE_* ]]; then
 
-## To ignore both of the above conditions
+## To ignore both of the above conditions:
 ## if [[ ${#MESSAGE} -gt 15 && "$message" != *_IGNORE_* ]]; then
 
 if [[ ${#MESSAGE} -gt 15 && "$message" != *_IGNORE_* ]]; then

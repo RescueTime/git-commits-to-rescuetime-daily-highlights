@@ -28,5 +28,4 @@ LABEL='Code Commit'
 
 if [[ ${#MESSAGE} -gt 15 && "$MESSAGE" != *_IGNORE_* ]]; then
   curl --data "key=$API_KEY&highlight_date=$DATE_TODAY&description=$MESSAGE&source=$LABEL" https://www.rescuetime.com/anapi/highlights_post
-  echo "Commit message logged as a daily highlight in RescueTime."
 fi

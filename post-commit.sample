@@ -26,6 +26,6 @@ LABEL='Code Commit'
 
 # See more filtering examples in README.md
 
-if [[ ${#MESSAGE} -gt 15 && "$MESSAGE" != *_IGNORE_* ]]; then
+if [[ ${#MESSAGE} -gt 15 ]]; then
   curl --data "key=$API_KEY&highlight_date=$DATE_TODAY&description=$MESSAGE&source=$LABEL" https://www.rescuetime.com/anapi/highlights_post
 fi
